@@ -1,1 +1,1 @@
-print __source__ + """ """
+print __source__ == open(__file__).read()
