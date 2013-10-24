@@ -1,9 +1,10 @@
 q = '"""'
-text = """q = '{}'
-text = {}
-print 'Hello world!'
+tmp_source = """q = '{}'
+tmp_source = {}
+globals()['__source__'] = tmp_source.format(q, q + tmp_source + q)
 
-print text.format(q, q + text + q)"""
-print 'Hello world!'
+print __source__
+"""
+globals()['__source__'] = tmp_source.format(q, q + tmp_source + q)
 
-print text.format(q, q + text + q)
+print __source__
