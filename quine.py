@@ -7,10 +7,10 @@ def _embed(source):
     """
     tmp_source = """import base64
 b64source = '{}'
-__source__ = base64.b64decode(b64source).replace('{{}}', b64source, 1)
+__source__ = base64.b64decode(b64source).replace('%', b64source, 1)
 
 {}"""
-    inner = tmp_source.format('{}', source)
+    inner = tmp_source.format('%', source)
     b64inner = b64encode(inner)
     return tmp_source.format(b64inner, source)
 
