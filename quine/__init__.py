@@ -19,6 +19,9 @@ def quinefy(old_filename, new_filename):
     Converts a file into a quine version of itself. This process adds a new
     global variable declaration, __source__, which contains the entire source
     of the program as a string.
+
+    Only a (large) header is added to the file, the rest of the source is left
+    untouched.
     """
     with open(old_filename) as old_file:
         source = old_file.read()
